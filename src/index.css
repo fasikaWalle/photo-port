@@ -54,6 +54,9 @@ h6 {
 
 h1 {
   font-size: 2.25rem;
+display:flex;
+justify-content: left;
+margin-left: 20px;
 }
 
 h2 {

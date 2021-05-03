@@ -1,13 +1,12 @@
-
-import './App.css';
-import About from './components/about/About';
-import Nav from './components/nav/Nav';
-
+import "./App.css";
+import About from "./components/about";
+import Nav from "./components/nav";
+import "./index.css";
 function App() {
   return (
     <div className="App">
-        <About/>
-        <Nav/>
+      <Nav />
+      <About />
     </div>
   );
 }
