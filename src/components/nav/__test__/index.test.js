@@ -1,33 +1,53 @@
+// __tests__/Nav.test.js with hard coded categories
 import React from "react";
 import { render, cleanup } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import Nav from "..";
+const categories = [
+  { name: "portraits", description: "Portraits of people in my life" },
+];
 
+const mockCurrentCategory = jest.fn();
+const setCurrentCategory = jest.fn();
 afterEach(cleanup);
+
 describe("Nav component", () => {
-  // baseline test
   it("renders", () => {
-    render(<Nav />);
+    render(
+      <Nav
+        categories={categories}
+        currentCategory={mockCurrentCategory}
+        setCurrentCategory={setCurrentCategory}
+      />
+    );
   });
+
   it("matches snapshot", () => {
-    const { asFragment } = render(<Nav />);
+    const { asFragment } = render(
+      <Nav
+        categories={categories}
+        currentCategory={mockCurrentCategory}
+        setCurrentCategory={setCurrentCategory}
+      />
+    );
 
     expect(asFragment()).toMatchSnapshot();
   });
 });
 
 describe("emoji is visible", () => {
-  it("insert emoji into the h2", () => {
+  it("inserts emoji into the h2", () => {
     const { getByLabelText } = render(<Nav />);
+
     expect(getByLabelText("camera")).toHaveTextContent("📸");
   });
 });
-describe("link is visible", () => {
-  it("insert text into the link", () => {
+
+describe("links are visible", () => {
+  it("inserts text into the links", () => {
     const { getByTestId } = render(<Nav />);
+
     expect(getByTestId("link")).toHaveTextContent("Oh Snap!");
     expect(getByTestId("about")).toHaveTextContent("About me");
   });
 });
-
-
