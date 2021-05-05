@@ -9,6 +9,8 @@ const categories = [
 
 const mockCurrentCategory = jest.fn();
 const setCurrentCategory = jest.fn();
+const mockContactSelected = jest.fn();
+const mockSetContactSelected = jest.fn();
 afterEach(cleanup);
 
 describe("Nav component", () => {
@@ -18,6 +20,8 @@ describe("Nav component", () => {
         categories={categories}
         currentCategory={mockCurrentCategory}
         setCurrentCategory={setCurrentCategory}
+        constactSelected={mockContactSelected}
+        setContactSelected={mockSetContactSelected}
       />
     );
   });
@@ -28,6 +32,8 @@ describe("Nav component", () => {
         categories={categories}
         currentCategory={mockCurrentCategory}
         setCurrentCategory={setCurrentCategory}
+        constactSelected={mockContactSelected}
+        setContactSelected={mockSetContactSelected}
       />
     );
 
